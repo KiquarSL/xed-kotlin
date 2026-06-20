@@ -24,7 +24,8 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
 
     override fun onExtensionLoaded() {
         kotlinServer = KotlinServer(
-            installScript = acquireLspInstallScript()
+            installScript = acquireLspInstallScript(),
+			context = context
         ).also {
             LspRegistry.registerServer(it)
         }
