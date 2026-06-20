@@ -4,7 +4,7 @@ import android.app.Activity
 import android.content.Context
 import com.rk.exec.isTerminalInstalled
 import com.rk.file.child
-import com.rm.file.BuiltinFileType
+import com.rk.file.BuiltinFileType
 import com.rk.file.sandboxHomeDir
 import com.rk.icons.Icon
 import com.rk.lsp.LspConnectionConfig
