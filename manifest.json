@@ -1,7 +1,7 @@
 {
   "$schema": "schema/schema.json",
   "id": "io.kiquar.plugin.kotlin",
-  "name": "Kotlin Support",
+  "name": "Kotlin JetBrains LSP",
   "mainClass": "io.kiquar.plugin.kotlin.Main",
   "version": "0.1.0",
   "description": "Extension that provides Kotlin and LSP by JetBrains. (Unstable)",
