@@ -23,10 +23,7 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     }
 
     override fun onExtensionLoaded() {
-        val icon = Icon.ExternalResourceIcon(R.drawable.kotlin, context.resources);
-
         kotlinServer = KotlinServer(
-            icon = icon,
             supportedExtensions = listOf("kt", "kts"),
             installScript = acquireLspInstallScript()
         ).also {
