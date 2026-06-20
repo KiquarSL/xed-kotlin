@@ -51,9 +51,7 @@ class KotlinServer(
     }
 
     override fun getConnectionConfig(): LspConnectionConfig {
-        return LspConnectionConfig.Socket(
-            host = "localhost",
-            port = 9000
-        )
-    }
+    val serverBin = sandboxHomeDir().child(".lsp/kotlin/bin/intellij-server").absolutePath
+    return LspConnectionConfig.Process(arrayOf(serverBin))
+}
 }
