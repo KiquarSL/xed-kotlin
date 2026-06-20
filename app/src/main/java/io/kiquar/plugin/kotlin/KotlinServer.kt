@@ -44,7 +44,7 @@ class KotlinServer(
     }
 
     override suspend fun isUpdatable(context: Context): Boolean {
-        val versionFile = sandboxHomeDir().child(".lsp/kotlin/build.txt")
+        val versionFile = sandboxHomeDir().child(".lsp/kotlin/version.txt")
         val currentVersionText = runCatching { versionFile.readText().trim() }.getOrNull() ?: return false
         return currentVersionText != kotlinLspVersion
     }

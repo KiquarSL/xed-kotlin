@@ -57,7 +57,9 @@ install() {
     rm -rf "$tmp_dir"
 
     chmod +x "$LSP_DIR_KT/bin/intellij-server"
-
+	
+	echo "$KOTLIN_LSP_VERSION" > $LSP_DIR_KT/version.txt
+	
     info "Kotlin LSP installed to $LSP_DIR_KT"
 }
 
