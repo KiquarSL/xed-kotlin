@@ -12,7 +12,7 @@ import com.rk.lsp.ScriptedLspServer
 import java.io.File
 
 class KotlinServer(
-    override val icon: Icon = BuiltinFileType.KOTLIN.icon,
+    override val icon: Icon? = BuiltinFileType.KOTLIN.icon,
     override val supportedExtensions: List<String> = listOf("kt", "kts"),
     override val installScript: File
 ) : ScriptedLspServer() {
