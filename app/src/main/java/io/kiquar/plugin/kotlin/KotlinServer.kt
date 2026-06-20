@@ -19,7 +19,7 @@ class KotlinServer(
 
     override val id = "kotlin"
     override val languageName = "Kotlin"
-    override val serverName = "kotlin-lsp"
+    override val serverName = "intellij-server"
     override val installId = "Kotlin Language Server"
 
     private val kotlinLspVersion = "262.8190.0"
