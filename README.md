@@ -2,7 +2,7 @@
 
 This extension adds Kotlin and LSP by JetBrains
 
-WARNING: It unstable works and can use a lot of memory!
+WARNING: It unstable works and can use a lot of memory! It can no work!
 
 ### Installation
 
