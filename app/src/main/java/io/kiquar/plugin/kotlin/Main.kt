@@ -23,7 +23,7 @@ class Main(context: ExtensionContext) : ExtensionAPI(context) {
     }
 
     override fun onExtensionLoaded() {
-        val icon = Icon.ExternalResourceIcon(R.drawable.kotlin, resources);
+        val icon = Icon.ExternalResourceIcon(R.drawable.kotlin, context.resources);
 
         kotlinServer = KotlinServer(
             icon = icon,
