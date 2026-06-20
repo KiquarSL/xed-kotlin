@@ -12,14 +12,14 @@ import com.rk.lsp.ScriptedLspServer
 import java.io.File
 
 class KotlinServer(
-    override val icon: Icon? = BuiltinFileType.KOTLIN.icon,
-    override val supportedExtensions: List<String>,
+    override val icon: Icon = BuiltinFileType.KOTLIN.icon,
+    override val supportedExtensions: List<String> = listOf("kt", "kts"),
     override val installScript: File
 ) : ScriptedLspServer() {
 
     override val id = "kotlin"
     override val languageName = "Kotlin"
-    override val serverName = "intellij-server"
+    override val serverName = "kotlin-lsp"
     override val installId = "Kotlin Language Server"
 
     private val kotlinLspVersion = "262.8190.0"
@@ -28,7 +28,8 @@ class KotlinServer(
         if (!isTerminalInstalled()) {
             return false
         }
-        return sandboxHomeDir().child(".lsp/kotlin/bin/intellij-server").exists()
+        return sandboxHomeDir().child(".lsp/kotlin/bin/intellij-server").exists() &&
+                sandboxHomeDir().child(".lsp/kotlin/bin/intellij-server").canExecute()
     }
 
     override fun install(activity: Activity) {
@@ -50,8 +51,9 @@ class KotlinServer(
     }
 
     override fun getConnectionConfig(): LspConnectionConfig {
-        return LspConnectionConfig.Process(arrayOf(
-            sandboxHomeDir().child(".lsp/kotlin/bin/intellij-server").absolutePath
-        ))
+        return LspConnectionConfig.Socket(
+            host = "localhost",
+            port = 9000
+        )
     }
 }
