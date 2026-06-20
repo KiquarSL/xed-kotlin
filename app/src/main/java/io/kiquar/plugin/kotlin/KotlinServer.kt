@@ -57,7 +57,7 @@ class KotlinServer(
 
     override fun getConnectionConfig(): LspConnectionConfig {
     	launchTerminal(
-            activity = context.currentActivity,
+            activity = context.currentActivity!!,
             terminalCommand = TerminalCommand(
                 exe = ".lsp/kotlin/bin/intellij-server",
                 args = arrayOf("--socket", "127.0.0.1:8081"),

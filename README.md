@@ -1,8 +1,8 @@
 # Kotlin Extension
 
-This extension adds Kotlin language and LSP by JetBrains
+This extension adds Kotlin and LSP by JetBrains
 
-WARNING: It unstable works!
+WARNING: It unstable works and can use a lot of memory!
 
 ### Installation
 
