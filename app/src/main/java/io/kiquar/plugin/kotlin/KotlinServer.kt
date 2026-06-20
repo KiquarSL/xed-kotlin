@@ -10,6 +10,9 @@ import com.rk.icons.Icon
 import com.rk.lsp.LspConnectionConfig
 import com.rk.lsp.ScriptedLspServer
 import java.io.File
+import com.rk.exec.launchTerminal
+import com.rk.exec.TerminalCommand
+import com.rk.activities.main.MainActivity
 
 class KotlinServer(
     override val icon: Icon? = BuiltinFileType.KOTLIN.icon,
@@ -51,7 +54,16 @@ class KotlinServer(
     }
 
     override fun getConnectionConfig(): LspConnectionConfig {
-    	val serverBin = sandboxHomeDir().child(".lsp/kotlin/bin/intellij-server").absolutePath
-    	return LspConnectionConfig.Process(arrayOf(serverBin, "--stdio"))
+		val activity = MainActivity.instance ?: return
+    	launchTerminal(
+            activity = ,
+            terminalCommand = TerminalCommand(
+                exe = ".lsp/kotlin/bin/intellij-server",
+                args = arrayOf("--socket", "127.0.0.1:8081"),
+                id = "intellij-server",
+                workingDir = "/home/",
+            ),
+        )
+    	return LspConnectionConfig.Socket("127.0.0.1", 8081)
 	}
 }
