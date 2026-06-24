@@ -33,7 +33,7 @@ jobs:
           java-version: 21
 
       - name: Make scripts executable
-        run: chmod +x ./gradlew && chmod +x ./compileRelease
+        run: chmod +x ./gradlew
 
       - name: Compile Release
         run: |
