@@ -1,4 +1,4 @@
-name: Extension Compile Test
+name: Extension Compile
 
 on:
   schedule:
@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-    name: Extension Compile Test
+    name: Extension Compile
     runs-on: ubuntu-latest
 
     steps:
