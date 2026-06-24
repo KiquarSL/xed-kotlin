@@ -165,47 +165,45 @@ tasks.register<Zip>("createFinalZip") {
     description = "Archives the generated APK files into a single ZIP file."
     group = "build"
 
-    doFirst {
-        val apkFiles = layout.buildDirectory
-            .dir("outputs/apk")
-            .get()
-            .asFile
-            .walk()
-            .filter { it.extension == "apk" }
-            .toList()
+    val apkFiles = layout.buildDirectory
+        .dir("outputs/apk")
+        .get()
+        .asFile
+        .walk()
+        .filter { it.extension == "apk" }
+        .toList()
 
-        if (apkFiles.size > 1) {
-            throw GradleException("multiple apk files detected, this build system cannot handle multiple apk files")
-        }
-
-        if (apkFiles.isEmpty()) {
-            throw GradleException("No apk files found, run ./gradlew assembleRelease first")
-        }
-
-        val apk = apkFiles.first()
-        val manifest = File(rootDir, "manifest.json")
-
-        val manifestJson: JsonObject by lazy {
-            val text = manifest.readText()
-            Gson().fromJson(text, JsonObject::class.java)
-        }
-
-        val extensionName: String by lazy {
-            manifestJson.get("name").asString
-        }
-
-        val iconFile = File(rootDir, "icon.png")
-        val readmeFile = File(rootDir, "README.md")
-        val changelogFile = File(rootDir, "CHANGELOG.md")
-
-        archiveFileName.set("$extensionName.zip")
-
-        from(apk) { into("") }
-        from(manifest) { into("") }
-        from(iconFile) { into("") }
-        from(readmeFile) { into("") }
-        from(changelogFile) { into("") }
-
-        destinationDirectory.set(File(rootDir, "output"))
+    if (apkFiles.size > 1) {
+        throw GradleException("multiple apk files detected, this build system canot handle multiple apk files")
     }
+
+    if (apkFiles.isEmpty()) {
+        throw GradleException("No apk files found, run ./gradlew assembleRelease first")
+    }
+
+    val apk = apkFiles.first()
+    val manifest = File(rootDir, "manifest.json")
+
+    val manifestJson: JsonObject by lazy {
+        val text = manifest.readText()
+        Gson().fromJson(text, JsonObject::class.java)
+    }
+
+    val extensionName: String by lazy {
+        manifestJson.get("name").asString
+    }
+
+    val iconFile = File(rootDir, "icon.png")
+    val readmeFile = File(rootDir, "README.md")
+    val changelogFile = File(rootDir, "CHANGELOG.md")
+
+    archiveFileName.set("$extensionName.zip")
+
+    from(apk) { into("") }
+    from(manifest) { into("") }
+    from(iconFile) { into("") }
+    from(readmeFile) { into("") }
+    from(changelogFile) { into("") }
+
+    destinationDirectory.set(File(rootDir, "output"))
 }
