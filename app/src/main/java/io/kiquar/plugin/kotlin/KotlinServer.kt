@@ -19,7 +19,7 @@ class KotlinServer(
     override val icon: Icon? = BuiltinFileType.KOTLIN.icon,
     override val supportedExtensions: List<String> = listOf("kt", "kts"),
     override val installScript: File,
-	val context: ExtensionContext,
+    val context: ExtensionContext,
 ) : ScriptedLspServer() {
 
     override val id = "kotlin"
@@ -56,15 +56,15 @@ class KotlinServer(
     }
 
     override fun getConnectionConfig(): LspConnectionConfig {
-    	launchTerminal(
+        launchTerminal(
             activity = context.currentActivity!!,
             terminalCommand = TerminalCommand(
                 exe = ".lsp/kotlin/bin/intellij-server",
-                args = arrayOf("--socket", "127.0.0.1:8081"),
+                args = arrayOf("--socket", "localhost:8081"),
                 id = "intellij-server",
                 workingDir = "/home/",
             ),
         )
-    	return LspConnectionConfig.Socket("127.0.0.1", 8081)
-	}
+        return LspConnectionConfig.Socket("localhost", 8081)
+    }
 }

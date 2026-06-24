@@ -3,7 +3,7 @@
   "id": "io.kiquar.plugin.kotlin",
   "name": "Kotlin JetBrains LSP",
   "mainClass": "io.kiquar.plugin.kotlin.Main",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Extension that provides Kotlin and LSP by JetBrains. (Unstable)",
   "author": {
     "displayName": "KiquarSL",
@@ -12,6 +12,6 @@
   "license": "MIT",
   "tags": ["kotlin", "lsp"],
   "minAppVersion": 95,
-  "maxAppVersion": 95,
+  "maxAppVersion": null,
   "repository": "https://github.com/KiquarSL/xed-kotlin"
 }
