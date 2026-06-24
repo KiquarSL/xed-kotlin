@@ -27,7 +27,7 @@ More likely lsp from extension no working, use instruction below for using lsp.
 
 ## Using for build plugins
 
-If you write plugin for Xed-Editor with it extension, then change task `createFinalZig`, if you did't it then lsp no run here!:
+If you write plugin for Xed-Editor with it extension, more likely lsp not started bacause task "createFinalZip". For fix you can move content to `doFirst`, but then extension cannot build. If you know how fix it, please do pull request.
 
 ## Build
 
