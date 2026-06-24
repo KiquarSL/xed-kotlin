@@ -10,7 +10,7 @@ on:
   pull_request:
 
 permissions:
-  contents: read 
+  contents: read
 
 jobs:
   build:
@@ -20,6 +20,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
 
       - name: Setup JDK
         uses: actions/setup-java@v4
@@ -31,8 +36,8 @@ jobs:
         run: chmod +x ./gradlew && chmod +x ./compileRelease
 
       - name: Compile Release
-	    run: |
-		  ./gradlew assembleRelease
+        run: |
+          ./gradlew assembleRelease
           ./gradlew createFinalZip
 
       - name: Upload ZIP
