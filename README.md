@@ -93,5 +93,3 @@ Release build:
 ./gradlew assembleRelease
 ./gradlew :app:createFinalZip
 ```
-
-Or use files `./compileDebug` or `./compileRelease`
