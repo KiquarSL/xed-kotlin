@@ -4,11 +4,13 @@ This extension adds Kotlin and LSP by JetBrains
 
 **WARNING**: It unstable extension. LSP can using a lot of memory and can slow working!
 
+Supported D compilers:
+1. GDC (GCC-based)
+2. LDC (LLVM-based)
+
 ### Installation
 
 Install the extension through the Xed-Editor's extension marketplace, and you're ready to go! Alternatively, you can download the latest release ZIP file and install it via Settings > Extensions > Install from storage.
-
-After install extension install kotlin and lsp in Settings > Editor > Language servers > Kotlin > Install
 
 Check installed:
 ```bash
